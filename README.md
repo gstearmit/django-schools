@@ -35,6 +35,10 @@ cd django-schools
 python3 -m venv env
 source ./env/bin/activate
 pip install -r requirements.txt
+
+python manage.py createsuperuser
+python manage.py runserver 7000
+
 ```
 
 Create the database and run the development server:
