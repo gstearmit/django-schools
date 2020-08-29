@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.urls import include, path
 from django.contrib import admin
 from classroom.views import classroom, students, teachers
@@ -12,3 +13,8 @@ urlpatterns = [
     path('accounts/signup/student/', students.StudentSignUpView.as_view(), name='student_signup'),
     path('accounts/signup/teacher/', teachers.TeacherSignUpView.as_view(), name='teacher_signup'),
 ]
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+] + urlpatterns
